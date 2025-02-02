@@ -50,5 +50,11 @@ route.post(
 route.get("/admin/courseView/:id", checkAuth, AdminController.courseView);
 route.get("/admin/courseEdit/:id", checkAuth, AdminController.courseEdit);
 route.get("/admin/courseDelete/:id", checkAuth, AdminController.courseDelete);
+route.post(
+  "/admin/update_Course/:id",
+  checkAuth,
+  AdminController.update_course
+);
+route.get("/admin/contactDisplay", checkAuth, AdminController.contactDisplay);
 
 module.exports = route;

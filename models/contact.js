@@ -2,15 +2,11 @@ const mongoose = require("mongoose");
 
 const ContactSchema = new mongoose.Schema(
   {
-    firstName: {
+    fullName: {
       type: String,
       Required: true,
     },
-    lastName: {
-      type: String,
-      Required: true,
-    },
-    userName: {
+    phoneNumber: {
       type: String,
       Required: true,
     },
@@ -18,7 +14,7 @@ const ContactSchema = new mongoose.Schema(
       type: String,
       Required: true,
     },
-    address: {
+    message: {
       type: String,
       Required: true,
     },

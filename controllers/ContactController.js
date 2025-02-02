@@ -5,19 +5,18 @@ class ContactController {
   static contactByUser = async (req, res) => {
     try {
       //   console.log(req.body);
-      const { firstName, lastName, userName, email, address } = req.body;
+      const { fullName, phoneNumber, email, message } = req.body;
 
-      if (!firstName || !lastName || !userName || !email || !address) {
+      if (!fullName || !phoneNumber || !email || !message) {
         req.flash("error", "All fields are Required.");
         return res.redirect("/contact");
       }
 
       const contactData = await ContactModel.create({
-        firstName,
-        lastName,
-        userName,
+        fullName,
+        phoneNumber,
         email,
-        address,
+        message,
       });
       req.flash("success", "Submitted Successfully !");
       res.redirect("/contact");

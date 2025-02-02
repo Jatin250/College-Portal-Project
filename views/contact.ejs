@@ -35,30 +35,20 @@
                                     <h4 class="mb-3">Contact Us!</h4>
                                     <form action="/contactByUser" method="post" class="needs-validation" novalidate="">
                                         <div class="row g-3 paddingValue">
-                                            <div class="col-sm-6">
-                                                <label for="firstName" class="form-label">First name</label>
-                                                <input name="firstName" type="text" class="form-control" id="firstName"
-                                                    placeholder="firstName" value="" required>
+                                            <div class="col-sm-12">
+                                                <label for="fullName" class="form-label">Fullname</label>
+                                                <input name="fullName" type="text" class="form-control" id="fullName"
+                                                    placeholder="fullName" value="" required>
                                                 <div class="invalid-feedback">
                                                     Valid first name is required.
                                                 </div>
                                             </div>
 
-                                            <div class="col-sm-6">
-                                                <label for="lastName" class="form-label">Last name</label>
-                                                <input name="lastName" type="text" class="form-control" id="lastName"
-                                                    placeholder="lastName" value="" required>
-                                                <div class="invalid-feedback">
-                                                    Valid last name is required.
-                                                </div>
-                                            </div>
-
                                             <div class="col-12">
-                                                <label for="username" class="form-label">Username</label>
+                                                <label for="phoneNumber" class="form-label">PhoneNumber</label>
                                                 <div class="input-group has-validation">
-                                                    <span class="input-group-text">@</span>
-                                                    <input name="userName" type="text" class="form-control"
-                                                        id="username" placeholder="Username" required>
+                                                    <input name="phoneNumber" type="tel" class="form-control"
+                                                        id="phoneNumber" placeholder="Phon. NO." required>
                                                     <div class="invalid-feedback">
                                                         Your username is required.
                                                     </div>
@@ -76,9 +66,9 @@
                                             </div>
 
                                             <div class="col-12">
-                                                <label for="address" class="form-label">Address</label>
-                                                <input name="address" type="text" class="form-control" id="address"
-                                                    placeholder="1234 Main St" required>
+                                                <label for="message" class="form-label">Message</label>
+                                                <input name="message" type="text" class="form-control" id="message"
+                                                    placeholder="message" required>
                                                 <div class="invalid-feedback">
                                                     Please enter your shipping address.
                                                 </div>

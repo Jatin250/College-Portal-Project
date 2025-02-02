@@ -1,5 +1,7 @@
 const CourseModel = require("../../models/course");
 const nodemailer = require("nodemailer");
+const contactModel = require("../../models/contact");
+const userModel = require("../../models/user");
 
 class AdminController {
   static dashboard = async (req, res) => {
@@ -199,22 +201,9 @@ class AdminController {
       const { name, image } = req.udata;
       const id = req.params.id;
       //console.log(id)
-      const course = await CourseModel.findById(req.params.id);
-      //console.log(course)
-      res.render("admin/view", { item: course, n: name, i: image });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  static courseEdit = async (req, res) => {
-    try {
-      const { name, image } = req.udata;
-      const id = req.params.id;
-      //console.log(id)
-      const course = await CourseModel.findById(req.params.id);
-      //console.log(course)
-      res.render("admin/edit", { item: course, n: name, i: image });
+      const course = await CourseModel.findById(id);
+      // console.log(course)
+      res.render("admin/view", { c: course, n: name, i: image });
     } catch (error) {
       console.log(error);
     }
@@ -229,6 +218,57 @@ class AdminController {
       //console.log(course)
       // res.render("admin/view", { item: course, n: name, i: image });
       res.redirect("/admin/courseDisplay");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static courseEdit = async (req, res) => {
+    try {
+      const { name, image } = req.udata;
+      const id = req.params.id;
+      //console.log(id)
+      const course = await CourseModel.findById(req.params.id);
+      //console.log(course)
+      res.render("admin/editCourse", { c: course, n: name, i: image });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static update_course = async (req, res) => {
+    try {
+      const id = req.params.id;
+      const { name, email, phone, education, gender, dob, course, address } =
+        req.body;
+      await CourseModel.findByIdAndUpdate(id, {
+        name,
+        email,
+        phone,
+        address,
+        dob,
+        gender,
+        education,
+        course,
+      });
+      req.flash("success", "Course updated successfully by Admin.");
+      res.redirect("/admin/Coursedisplay");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  static contactDisplay = async (req, res) => {
+    try {
+      const { name, image, email } = req.udata;
+      const course = await contactModel.find();
+
+      res.render("admin/contactDisplay", {
+        n: name,
+        i: image,
+        e: email,
+        c: course,
+      });
     } catch (error) {
       console.log(error);
     }

@@ -1,32 +1,29 @@
 <%- include('./header.ejs') %>
-    <%- include('./sidebar.ejs') %>
+    <%- include('./sidebar.ejs')%>
+
+
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
+
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0 text-dark">Course</h1>
-                        </div>
-                        <!-- /.col -->
+                            <h1 class="m-0 text-dark">Course View</h1>
+                        </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                                <li class="breadcrumb-item active">Course Display</li>
+                                <li class="breadcrumb-item"><a href="/admin/dashboard">Dashboard</a></li>
+                                <li class="breadcrumb-item active">Course </li>
                             </ol>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container-fluid -->
-            </div>
-            <!-- /.content-header -->
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
 
-            <!-- Main content -->
-            <div class="content">
+
                 <div class="container-fluid">
+
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">DataTable with default features</h3>
@@ -36,48 +33,69 @@
                             <table id="example1" class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Id</th>
                                         <th>Name</th>
-                                        <th>Course</th>
-                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Dob</th>
+                                        <th>Education</th>
                                         <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>Course</th>
                                         <th>Status</th>
                                         <th>Comment</th>
                                     </tr>
                                 </thead>
                                 <tbody>
+
                                     <tr>
                                         <td>
-                                            <%= item.id%>
+                                            <%= c.id %>
                                         </td>
                                         <td>
-                                            <%= item.name %>
-                                        </td>
-
-                                        <td>
-                                            <%= item.course %>
-                                        </td>
-                                        <th>
-                                            <%= item.address %>
-                                        </th>
-                                        <td>
-                                            <%= item.gender %>
+                                            <%= c.name %>
                                         </td>
                                         <td>
-                                            <%= item.status %>
+                                            <%= c.email %>
                                         </td>
                                         <td>
-                                            <%= item.comment %>
+                                            <%= c.phone %>
+                                        </td>
+                                        <td>
+                                            <%= c.dob %>
+                                        </td>
+                                        <td>
+                                            <%= c.education %>
+                                        </td>
+                                        <td>
+                                            <%= c.gender %>
+                                        </td>
+                                        <td>
+                                            <%= c.address %>
+                                        </td>
+                                        <td>
+                                            <%= c.course %>
+                                        </td>
+                                        <td>
+                                            <%= c.status %>
+                                        </td>
+                                        <td>
+                                            <%= c.comment %>
                                         </td>
                                     </tr>
+
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th>ID</th>
+                                        <th>Id</th>
                                         <th>Name</th>
-                                        <th>Course</th>
-                                        <th>Address</th>
+                                        <th>Email</th>
+                                        <th>Phone</th>
+                                        <th>Dob</th>
+                                        <th>Education</th>
                                         <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>Course</th>
                                         <th>Status</th>
                                         <th>Comment</th>
                                     </tr>
@@ -87,10 +105,15 @@
                         <!-- /.card-body -->
                     </div>
                     <!-- /.card -->
-                </div>
-                <!-- /.container-fluid -->
+                </div><!-- /.container -->
             </div>
-            <!-- /.content -->
+            <!-- /.content-header -->
+
+
         </div>
         <!-- /.content-wrapper -->
+
+
+
+
         <%- include('./footer.ejs') %>
