@@ -12,9 +12,12 @@ route.get("/home", checkAuth, FrontController.home);
 route.get("/about", checkAuth, FrontController.about);
 route.get("/contact", checkAuth, FrontController.contact);
 route.get("/register", FrontController.register);
-route.post("/userinsert", FrontController.userinsert);
-route.post("/verifyLogin", FrontController.verifyLogin);
 route.get("/logout", FrontController.logout);
+
+// userinsert
+route.post("/userinsert", FrontController.userinsert);
+// verifyLogin
+route.post("/verifyLogin", FrontController.verifyLogin);
 
 // profile
 route.get("/profile", checkAuth, FrontController.profile);
@@ -50,11 +53,20 @@ route.post(
 route.get("/admin/courseView/:id", checkAuth, AdminController.courseView);
 route.get("/admin/courseEdit/:id", checkAuth, AdminController.courseEdit);
 route.get("/admin/courseDelete/:id", checkAuth, AdminController.courseDelete);
+route.get(
+  "/admin/deleteMessage/:id",
+  checkAuth,
+  AdminController.delete_message
+);
 route.post(
   "/admin/update_Course/:id",
   checkAuth,
   AdminController.update_course
 );
 route.get("/admin/contactDisplay", checkAuth, AdminController.contactDisplay);
+route.get("/admin/update_pass", checkAuth, AdminController.update_pass);
+route.get("/admin/profile_update", checkAuth, AdminController.profile_update);
+route.post("/admin/changePassword", checkAuth, AdminController.changePassword);
+route.post("/admin/updateProfile", checkAuth, AdminController.updateProfile);
 
 module.exports = route;
