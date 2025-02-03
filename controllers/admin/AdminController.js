@@ -16,7 +16,25 @@ class AdminController {
   static dashboard = async (req, res) => {
     try {
       const { name, email, image } = req.udata;
-      res.render("admin/dashboard", { n: name, i: image, e: email });
+      const totalUsers = await CourseModel.countDocuments();
+      const approvedUsers = await CourseModel.countDocuments({
+        status: "Approved",
+      });
+      const pendingUsers = await CourseModel.countDocuments({
+        status: "Pending",
+      });
+      const rejectedUsers = await CourseModel.countDocuments({
+        status: "Reject",
+      });
+      res.render("admin/dashboard", {
+        n: name,
+        i: image,
+        e: email,
+        totalUsers,
+        approvedUsers,
+        pendingUsers,
+        rejectedUsers,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -393,6 +411,54 @@ class AdminController {
       await UserModel.findByIdAndUpdate(id, data);
       req.flash("success", "Profile Update by Admin successfully");
       res.redirect("/admin/profile_update");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // ApprovedUsers
+  static ApprovedUsers = async (req, res) => {
+    try {
+      const { name, email, image } = req.udata;
+      const course = await CourseModel.find({ status: "Approved" });
+      res.render("admin/approvedUsers", {
+        n: name,
+        i: image,
+        e: email,
+        c: course,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // PendingUsers
+  static PendingUsers = async (req, res) => {
+    try {
+      const { name, email, image } = req.udata;
+      const course = await CourseModel.find({ status: "Pending" });
+      res.render("admin/pendingUsers", {
+        n: name,
+        i: image,
+        e: email,
+        c: course,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // RejectUsers
+  static RejectUsers = async (req, res) => {
+    try {
+      const { name, email, image } = req.udata;
+      const course = await CourseModel.find({ status: "Reject" });
+      res.render("admin/rejectUsers", {
+        n: name,
+        i: image,
+        e: email,
+        c: course,
+      });
     } catch (error) {
       console.log(error);
     }

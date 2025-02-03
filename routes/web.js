@@ -68,5 +68,8 @@ route.get("/admin/update_pass", checkAuth, AdminController.update_pass);
 route.get("/admin/profile_update", checkAuth, AdminController.profile_update);
 route.post("/admin/changePassword", checkAuth, AdminController.changePassword);
 route.post("/admin/updateProfile", checkAuth, AdminController.updateProfile);
+route.get("/admin/approvedUsers", checkAuth, AdminController.ApprovedUsers);
+route.get("/admin/pendingUsers", checkAuth, AdminController.PendingUsers);
+route.get("/admin/rejectedUsers", checkAuth, AdminController.RejectUsers);
 
 module.exports = route;
